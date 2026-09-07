@@ -7,6 +7,9 @@ def validate_task_title(title):
     return True
 
 def validate_task_description(description):
+    if len(description) > 500:
+        print("Error: Task description cannot exceed 500 characters.")
+        return False
     if len(description.strip()) == 0:
         print("Error: Task description cannot be empty.")
         return False
