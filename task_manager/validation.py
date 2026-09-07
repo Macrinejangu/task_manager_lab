@@ -14,8 +14,10 @@ def validate_task_description(description):
 
 def validate_due_date(due_date):
     try:
+        if len(due_date) != 10:
+            raise ValueError("Due date must be in YYYY-MM-DD format.")
         datetime.strptime(due_date, "%Y-%m-%d")
         return True
-    except ValueError:
-        print("Error: Due date must be in YYYY-MM-DD format.")
+    except ValueError as error:
+        print(f"Error: {error}")
         return False
